@@ -1,0 +1,93 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+@font-face {
+  font-family: 'myFont';
+  src: url(my-font.woff2) format('woff2');
+}
+
+#content {
+	display:flex; 
+	flex-direction:column; 
+	height: 100vh;
+	width: calc(100vw - (100vw - 100%));
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'myFont';
+	font-size: 24px;
+	padding: 10px;
+	background-color: #9F1A2F;
+}
+
+navbar {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-top: 10px;
+	font-family: 'myFont';
+	font-size: 18px;
+	color: #eeee;
+	background-color: #2B2948;
+}
+
+.tab {
+	padding: 10px;
+}
+
+.tab:hover {
+	cursor: pointer;
+	color: black;
+	background-color: #eeee;
+}
+
+section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0px 50px;
+	height: 80%;
+	width: 100%;
+	background-color: #9F1A2F;
+}
+
+img {
+  display: block;
+  max-width:250px;
+  max-height:250px;
+  width: auto;
+  height: auto;
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+	gap: 15px;
+	margin-top: auto;
+	padding: 10px;
+	background-color: #2B2948;;
+	color: #eeee;
+}
+
+.fa-github {
+	color: #eeee;
+	font-size: 24px;
+	font-weight: bold;
+}
