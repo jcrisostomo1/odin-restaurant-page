@@ -1,4 +1,5 @@
-import restaurant from './images/restaurant.jpg';
+import { homeDiv } from './home'; 
+import { menuDiv } from './menu';
 import '@fortawesome/fontawesome-free/js/all.js';
 import './style.css';
 
@@ -6,8 +7,6 @@ const body = document.getElementsByTagName('body')[0];
 const content = document.createElement('div');
 content.id = "content";
 body.appendChild(content);
-
-console.log(body)
 
 // Create header
 const header = document.createElement('header');
@@ -18,8 +17,8 @@ content.appendChild(header);
 
 // Create navbar
 const navbar = document.createElement('navbar');
-const tabs = ["Home", "Menu", "Contact"];
-tabs.map(item => {
+const tabNames = ["Home", "Menu", "Contact"];
+tabNames.map(item => {
     const div = document.createElement('div');
     const tabName = document.createElement('h3');
     tabName.innerText = item;
@@ -29,18 +28,9 @@ tabs.map(item => {
 });
 content.appendChild(navbar);
 
-// Create section
+// Append home section as default
 const section = document.createElement('section');
-const main = document.createElement('div');
-const welcome = document.createElement('h1');
-const paragraph = document.createElement('p');
-const image = document.createElement('img');
-main.classList.add('main');
-welcome.innerText = "Welcome to Spice and Dice!"
-paragraph.innerText = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, a omnis. Omnis voluptatem eveniet repellat? Mollitia non rem nisi ab doloremque architecto asperiores rerum repudiandae adipisci voluptas voluptatum hic laudantium consequatur, enim nulla molestias voluptate sed blanditiis sint nostrum cupiditate. Pariatur repellendus placeat sit minima corrupti consectetur dolores vitae aspernatur!";
-image.src = restaurant;
-main.append(welcome, paragraph,image);
-section.appendChild(main);
+section.appendChild(homeDiv);
 content.appendChild(section);
 
 // Create footer
@@ -56,3 +46,25 @@ anchor.appendChild(githubLogo);
 credits.innerText = "Made by: jcrisostomo1";
 footer.append(anchor, credits);
 content.append(footer);
+
+
+const removeAllChildNodes = (parent) => {
+	while (parent.firstChild) {
+			parent.removeChild(parent.firstChild);
+	}
+}
+
+// Logic to switch tabs
+const tabs = document.querySelectorAll('.tab');
+tabs.forEach(tab => {
+	tab.addEventListener('click', () => {
+		// Remove previous section
+		let prevSection = document.querySelector('section');
+		removeAllChildNodes(prevSection);
+		if (tab.innerText === 'Home') {
+			prevSection.appendChild(homeDiv);
+		} else if (tab.innerText === 'Menu') {
+			prevSection.appendChild(menuDiv);
+		}
+	});
+});
