@@ -1,5 +1,6 @@
 import { homeDiv } from './home'; 
 import { menuDiv } from './menu';
+import { contactDiv } from './contact';
 import '@fortawesome/fontawesome-free/js/all.js';
 import './style.css';
 
@@ -65,6 +66,8 @@ tabs.forEach(tab => {
 			prevSection.appendChild(homeDiv);
 		} else if (tab.innerText === 'Menu') {
 			prevSection.appendChild(menuDiv);
+		} else {
+			prevSection.appendChild(contactDiv);
 		}
 	});
 });
